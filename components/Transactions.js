@@ -3,7 +3,7 @@ import React from 'react'
 
 const Transactions = ({ txs }) => {
     return (
-        <div className='card bg-base-200 p-8 shadow-xl mr-4 w-full mb-16'>
+        <div className='card bg-base-200 p-8 shadow-xl mr-4 w-full mb-16 border border-success'>
             <h1 className='text-3xl mb-5 font-bold'>Recent Transactions</h1>
             {
                 txs ? (

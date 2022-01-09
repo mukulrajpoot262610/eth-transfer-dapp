@@ -3,10 +3,8 @@ import React from 'react'
 
 const Profile = ({ defaultAccount, userBalance, errorMessage, connectWalletHandler, connButtonText }) => {
 
-    console.log(userBalance.substring(0, 8))
-
     return (
-        <div className='card bg-base-200 p-8 shadow-xl lg:mr-4 w-full'>
+        <div className='card bg-base-200 p-8 shadow-xl border border-warning lg:mr-4 w-full'>
             <div className="grid flex-grow card place-items-center">
                 <h1 className='text-3xl mb-5 font-bold'>Account Details</h1>
                 <div className="avatar">

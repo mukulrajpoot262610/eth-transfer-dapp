@@ -88,19 +88,20 @@ export default function Home() {
         value: ethers.utils.parseEther(amount)
       })
 
-      window.ethereum.on('update', (newAcc) => {
-        setDefaultAccount(newAcc);
-        getAccountBalance(newAcc.toString());
-      });
-
-      console.log("TRANSACTION: ", tx)
-      setTxs([...txs, tx])
+      window.ethereum.request({ method: 'eth_requestAccounts' })
+        .then(result => {
+          setDefaultAccount(result[0]);
+          getAccountBalance(result[0].toString());
+          setConnButtonText('Wallet Connected');
+        })
+        .catch(error => {
+          setErrorMessage(error.message);
+        });
+      setTxs([tx])
 
     } catch (err) {
       setErrorMessage(err.message)
     }
-
-    console.log({ address, amount })
   }
 
   return (

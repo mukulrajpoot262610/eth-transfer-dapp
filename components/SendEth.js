@@ -2,7 +2,7 @@ import React from 'react'
 
 const SendEth = ({ handleAddress, handleAmount, handleSubmit }) => {
     return (
-        <div className='card bg-base-200 p-8 shadow-xl mt-8 lg:mt-0 lg:ml-4 w-full'>
+        <div className='card bg-base-200 border border-warning p-8 shadow-xl mt-8 lg:mt-0 lg:ml-4 w-full'>
             <div className="grid flex-grow card place-items-center">
                 <h1 className='text-3xl mb-5 font-bold'>Send Ethers</h1>
                 <form onSubmit={handleSubmit}>
@@ -18,7 +18,7 @@ const SendEth = ({ handleAddress, handleAmount, handleSubmit }) => {
                         </label>
                         <label className="input-group input-group-lg">
                             <input type="text" className="input input-warning input-bordered" onChange={handleAmount} required />
-                            <span className='bg-warning'>ETH</span>
+                            <span className='bg-warning text-white font-bold'>ETH</span>
                         </label>
                     </div>
                     <div>
