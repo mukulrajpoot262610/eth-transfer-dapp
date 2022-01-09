@@ -1,23 +1,23 @@
 import React from 'react'
 
-const SendEth = () => {
+const SendEth = ({ handleAddress, handleAmount, handleSubmit }) => {
     return (
-        <div className='card bg-base-200 p-8 shadow-xl ml-4 w-full'>
+        <div className='card bg-base-200 p-8 shadow-xl mt-8 lg:mt-0 lg:ml-4 w-full'>
             <div className="grid flex-grow card place-items-center">
                 <h1 className='text-3xl mb-5 font-bold'>Send Ethers</h1>
-                <form className=''>
+                <form onSubmit={handleSubmit}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Recipient Address</span>
                         </label>
-                        <input type="text" className="input input-warning input-lg input-bordered" required />
+                        <input type="text" className="input input-warning input-bordered" onChange={handleAddress} required />
                     </div>
                     <div className="form-control">
                         <label className="label mt-4">
                             <span className="label-text">Amount in ETH</span>
                         </label>
                         <label className="input-group input-group-lg">
-                            <input type="number" className="input input-warning input-bordered input-lg" required />
+                            <input type="text" className="input input-warning input-bordered" onChange={handleAmount} required />
                             <span className='bg-warning'>ETH</span>
                         </label>
                     </div>
