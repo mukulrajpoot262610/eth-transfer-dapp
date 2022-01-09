@@ -16,14 +16,13 @@ const Profile = ({ defaultAccount, userBalance, errorMessage, connectWalletHandl
                     <div className="flex flex-col items-center">
                         <div className="stat-title">Account Address</div>
                         <div className="stat-value text-warning text-xs lg:text-base"> {defaultAccount}</div>
-                        <div className="stat-desc">Ropsten Test Network</div>
                     </div>
                 </div>
                 <div className="shadow-2xl stats my-4">
                     <div className="stat">
                         <div className="stat-title">Balance</div>
                         <div className="stat-value text-warning"> {userBalance ? userBalance.substring(0, 8) : 0.0} <span className='text-base'>ETH</span></div>
-                        <div className="stat-desc">Ropsten Test Network</div>
+                        <div className="stat-desc">Total Ethereum in Wallet</div>
                     </div>
                 </div>
                 <button disabled={errorMessage || connButtonText === "Wallet Connected"} onClick={connectWalletHandler} className='btn btn-wide btn-outline btn-warning'>{connButtonText}</button>

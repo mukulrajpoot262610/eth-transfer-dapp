@@ -74,6 +74,15 @@ export default function Home() {
     }
   }, [])
 
+  useEffect(() => {
+    const network = async () => {
+      let provider = ethers.providers.getDefaultProvider()
+      console.log("HELLO: ", provider)
+    }
+
+    network()
+  }, [defaultAccount])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
