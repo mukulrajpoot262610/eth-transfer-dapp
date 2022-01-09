@@ -18,10 +18,12 @@ export default function Home() {
   const [txs, setTxs] = useState();
 
   const handleAddress = (e) => {
+    setErrorMessage("")
     setAddress(e.target.value)
   }
 
   const handleAmount = (e) => {
+    console.log(typeof e.target.value)
     setAmount(e.target.value)
   }
 
@@ -73,15 +75,6 @@ export default function Home() {
       }
     }
   }, [])
-
-  useEffect(() => {
-    const network = async () => {
-      let provider = ethers.providers.getDefaultProvider()
-      console.log("HELLO: ", provider)
-    }
-
-    network()
-  }, [defaultAccount])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -140,7 +133,7 @@ export default function Home() {
           <div className='flex justify-center flex-col lg:flex-row'>
             <Profile defaultAccount={defaultAccount} userBalance={userBalance} errorMessage={errorMessage} connectWalletHandler={connectWalletHandler} connButtonText={connButtonText} />
 
-            <SendEth handleAddress={handleAddress} handleAmount={handleAmount} handleSubmit={handleSubmit} />
+            <SendEth handleAddress={handleAddress} handleAmount={handleAmount} handleSubmit={handleSubmit} errorMessage={errorMessage} defaultAccount={defaultAccount} />
           </div>
 
           <div className='mt-8'>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SendEth = ({ handleAddress, handleAmount, handleSubmit }) => {
+const SendEth = ({ handleAddress, handleAmount, handleSubmit, errorMessage, defaultAccount }) => {
     return (
         <div className='card bg-base-200 border border-warning p-8 shadow-xl mt-8 lg:mt-0 lg:ml-4 w-full'>
             <div className="grid flex-grow card place-items-center">
@@ -17,12 +17,12 @@ const SendEth = ({ handleAddress, handleAmount, handleSubmit }) => {
                             <span className="label-text">Amount in ETH</span>
                         </label>
                         <label className="input-group input-group-lg">
-                            <input type="text" className="input input-warning input-bordered" onChange={handleAmount} required />
+                            <input type="number" step="any" className="input input-warning input-bordered" onChange={handleAmount} required />
                             <span className='bg-warning text-white font-bold'>ETH</span>
                         </label>
                     </div>
                     <div>
-                        <button className='btn w-full btn-outline btn-warning mt-8'>Pay Now</button>
+                        <button disabled={errorMessage || !defaultAccount} className='btn w-full btn-outline btn-warning mt-8'>Pay Now</button>
                     </div>
                 </form>
             </div>
